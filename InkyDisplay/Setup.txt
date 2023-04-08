@@ -1,0 +1,12 @@
+# For lxml==4.9.1
+sudo apt install libxml2-dev libxslt1-dev
+# For cryptography==38.0.1
+sudo apt install build-essential libssl-dev libffi-dev python3-dev cargo pkg-config
+python3 -m venv .venv
+. .venv/bin/activate
+pip install --upgrade pip
+pip install -r requirements.txt
+# for pybluez==0.23
+pip install setuptools==58
+pip install -r inky-requirements.txt
+pip install --upgrade setuptools

@@ -1,0 +1,4 @@
+setuptools==58
+git+ssh://git@github.com/pybluez/pybluez.git@master
+git+ssh://git@github.com/jasompi/e-Paper.git@master#subdirectory=RaspberryPi_JetsonNano/python
+git+ssh://git@github.com/jasompi/inky.git@v1.4.1#subdirectory=library
