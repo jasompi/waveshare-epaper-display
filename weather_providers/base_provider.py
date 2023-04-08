@@ -6,6 +6,7 @@ from astral import LocationInfo
 from astral.sun import sun
 import datetime
 import pytz
+from tzlocal import get_localzone
 
 
 class BaseWeatherProvider(ABC):
@@ -39,8 +40,9 @@ class BaseWeatherProvider(ABC):
         """
 
         # adjust icon for sunrise and sunset
-        dt = datetime.datetime.now(pytz.utc)
-        city = LocationInfo(location_lat, location_long)
+        local_tz = get_localzone()
+        dt = datetime.datetime.now(local_tz)
+        city = LocationInfo(latitude=location_lat, longitude=location_long, timezone=local_tz)
         s = sun(city.observer, date=dt)
         verdict = False
         if dt > s['sunset'] or dt < s['sunrise']:
